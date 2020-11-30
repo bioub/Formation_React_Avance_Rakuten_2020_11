@@ -6,10 +6,10 @@ export default function Todos() {
   return (
     <div className="Todos">
       <TodoFormContainer />
-      <TodoListContainer />
+        <TodoListContainer />
 
-      <hr />
-      <Clock />
+        <hr />
+        <Clock />
     </div>
   );
 }
