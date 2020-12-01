@@ -4,19 +4,12 @@ export default class Clock extends Component {
   constructor() {
     super();
     this.state = {
-      options: {
-        format: 'HH:mm:ss',
-      },
       now: new Date(),
     };
   }
   componentDidMount() {
     this._interval = setInterval(() => {
-      // Object.assign() / shallow merge
       this.setState({
-        options: {
-          delay: 1000,
-        },
         now: new Date(),
       });
     }, 1000);

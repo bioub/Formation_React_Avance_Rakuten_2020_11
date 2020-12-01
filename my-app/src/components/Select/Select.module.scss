@@ -1,17 +1,17 @@
 $border-color: black;
 
-.Select {
+.host {
   position: relative;
   width: 200px;
   cursor: pointer;
 }
 
-.Select .selected {
+.selected {
   border: 1px solid $border-color;
   padding: 5px;
 }
 
-.Select .items {
+.items {
   position: absolute;
   border: 1px solid $border-color;
   width: 100%;
@@ -19,6 +19,6 @@ $border-color: black;
   background-color: white;
 }
 
-.Select .item {
+.item {
   padding: 5px;
 }
