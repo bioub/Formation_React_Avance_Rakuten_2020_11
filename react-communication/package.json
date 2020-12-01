@@ -1,14 +1,16 @@
 {
-  "name": "my-app-optimized",
+  "name": "react-communication",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.20",
-    "lodash-es": "^4.17.15",
-    "lodash.random": "^3.2.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-scripts": "3.3.1",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

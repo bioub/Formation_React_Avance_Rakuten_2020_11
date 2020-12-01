@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import './TodoItem.css';
 
-export default function TodoItem({ item, onDeleteItem }) {
-  console.log('render item');
+function TodoItem({ item, onDeleteItem }) {
+  console.log('render TodoItem');
 
   return (
     <div className="TodoItem">
@@ -10,3 +11,5 @@ export default function TodoItem({ item, onDeleteItem }) {
     </div>
   );
 }
+
+export default memo(TodoItem);
