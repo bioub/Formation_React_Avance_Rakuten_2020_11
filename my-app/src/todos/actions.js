@@ -1,22 +1,19 @@
-import { TODO_ADD, TODO_CHANGE } from './constants';
+import { createAction, nanoid } from '@reduxjs/toolkit';
 
-function randomInt() {
-  return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-}
+const todoChange = createAction('TODO_CHANGE');
+const todoDelete = createAction('TODO_DELETE');
+const todoAdd = createAction('TODO_ADD', (text) => ({
+  payload: {
+    id: nanoid(),
+    text,
+    completed: false,
+  },
+}));
 
-function todoChange(payload) {
-  return { type: TODO_CHANGE, payload };
-}
+// export function todoAddRequested() {
+//   return (dispatch, state) => {
+//     dispatch(todoAdd(state.todos.input));
+//   }
+// }
 
-function todoAdd(text) {
-  return {
-    type: TODO_ADD,
-    payload: {
-      id: randomInt(),
-      text,
-      completed: false,
-    },
-  };
-}
-
-export { todoChange, todoAdd };
+export { todoChange, todoDelete, todoAdd };

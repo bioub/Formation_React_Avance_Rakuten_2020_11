@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { todoDelete } from '../actions';
 
 import TodoList from '../components/TodoList/TodoList';
 import { selectTodosCount, selectTodosItems } from '../selectors';
@@ -10,18 +11,15 @@ function mapStateToProps(state) {
   };
 }
 
-// Exercice : supprimer des todos via Redux
-// 1 - créer une constante TODO_DELETE dans constants.js
-// 2 - créer un action creator todoDelete dont le payload
-// sera la todo à supprimer dans actions.js
-// 3 - modifier itemsReducer dans reducers.js pour supprimer
-// du state la todo correspondant sur l'action TODO_DELETE
-// 4 - ajouter ici une fonction mapDispatchToProps qui devra créer
-// la props onDeleteItem (appelée au niveau de TodoItem)
+function mapDispatchToProps(dispatch) {
+  return {
+    onDeleteItem(item) {
+      dispatch(todoDelete(item));
+    },
+  };
+}
 
-// onDeleteItem
-
-const enhance = connect(mapStateToProps);
+const enhance = connect(mapStateToProps, mapDispatchToProps);
 
 export default enhance(TodoList);
 

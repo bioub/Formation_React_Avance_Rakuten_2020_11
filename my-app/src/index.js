@@ -4,11 +4,18 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import App from './components/App/App';
-import { configureStore } from './configureStore';
+import { configureStore } from '@reduxjs/toolkit'
 import * as serviceWorker from './serviceWorker';
+import { todosReducer } from './todos/reducers';
+import { usersReducer } from './users/reducers';
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
+  <Provider store={configureStore({
+    reducer: {
+      todos: todosReducer,
+      users: usersReducer,
+    }
+  })}>
     <App />
   </Provider>,
   document.getElementById('root'),

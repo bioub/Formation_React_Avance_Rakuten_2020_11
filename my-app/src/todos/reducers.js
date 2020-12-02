@@ -1,24 +1,20 @@
 import { combineReducers } from 'redux';
+import { createReducer } from '@reduxjs/toolkit';
+import { todoAdd, todoChange, todoDelete } from './actions';
 
-import { TODO_ADD, TODO_CHANGE } from './constants';
+const initialTodosState = {
+  input: '',
+  items: [],
+};
 
-function inputReducer(previousState = '', { type, payload }) {
-  switch (type) {
-    case TODO_CHANGE:
-      return payload;
-    default:
-      return previousState;
-  }
-}
+const inputReducer = createReducer(initialTodosState.input, {
+  [todoChange]: (state, { payload }) => payload,
+});
 
-function itemsReducer(previousState = [], { type, payload }) {
-  switch (type) {
-    case TODO_ADD:
-      return [...previousState, payload];
-    default:
-      return previousState;
-  }
-}
+const itemsReducer = createReducer(initialTodosState.items, {
+  [todoAdd]: (state, { payload }) => [...state, payload],
+  [todoDelete]: (state, { payload }) => state.filter((it) => it.id !== payload.id),
+});
 
 const todosReducer = combineReducers({
   input: inputReducer,

@@ -1,4 +1,5 @@
 import { USER_FETCH, USER_FETCH_SUCCESS } from './constants';
+import { getAll } from "./api/users";
 
 export function userFetch() {
   return {
@@ -11,4 +12,12 @@ export function userFetchSuccess(users) {
     type: USER_FETCH_SUCCESS,
     payload: users,
   };
+}
+
+export function userFetchRequested() {
+  return async (dispatch) => {
+    dispatch(userFetch());
+    const users = await getAll();
+    dispatch(userFetchSuccess(users));
+  }
 }
