@@ -7,8 +7,8 @@ const initialState = {
 };
 
 // function pure :
-  // - prédicitive (ex: sum, not prédictive: Math.random())
-  // - pas de side effect (pas de log, ajax)
+  // - prédicitive (ex: sum, not prédictive: Math.random(), uuid)
+  // - pas de side effect (pas de log, ajax, génération d'id)
   // - pas de modification des paramètres
 
   // Flux Standard Action (FSA)
@@ -17,18 +17,23 @@ const initialState = {
   //   switch (action.type) {
   //     case TODO_ADD:
   //       return {
-  //         ...state,
+  //         ...state, // SPREAD operator
   //         todos: todosReducer(state.todos, action),
   //       }
   //     case USER_ADD:
   //       return {
   //         ...state,
-  //         users: [...state.users, action.payload]
+  //         users: usersReducer(state.users, action),
   //       }
   //     default:
   //       return state;
   //   }
   // }
+
+  const reducer = redux.combineReducers({
+    todos: todosReducer,
+    users: usersReducer,
+  });
 
   function todosReducer(state = initialState.todos, action) {
     switch (action.type) {
@@ -48,9 +53,6 @@ const initialState = {
     }
   }
 
-  const reducer = redux.combineReducers({
-    todos: todosReducer,
-    users: usersReducer,
-  });
+  
 
   exports.reducer = reducer;

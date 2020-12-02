@@ -21,4 +21,10 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
+const enhance = connect(mapStateToProps, mapDispatchToProps);
+
+export default enhance(TodoForm);
+
+// <Container>
+//   <TodoForm newTodoInput={selectTodosInput(state)} onNewTodoChange={(inputVal) => dispatch(todoChange(inputVal))}>
+// <Container>

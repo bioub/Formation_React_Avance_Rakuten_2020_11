@@ -2,7 +2,7 @@ const redux = require('redux');
 
 const initialState = { count: 0 };
 
-const reducer = (previousState = initialState) => previousState;
+const reducer = (previousState = initialState, action) => previousState;
 
 /** @type {import('redux').Store} */
 const store = redux.createStore(reducer);
