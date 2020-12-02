@@ -17,7 +17,12 @@ export function userFetchSuccess(users) {
 export function userFetchRequested() {
   return async (dispatch) => {
     dispatch(userFetch());
-    const users = await getAll();
-    dispatch(userFetchSuccess(users));
+    try {
+      const users = await getAll();
+      dispatch(userFetchSuccess(users));
+    }
+    catch(err) {
+      // dispatch(userFetchError(err));
+    }
   }
 }
